@@ -1,0 +1,23 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "products": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "artisans": {
+      "$uid":{
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    },
+    "users":{
+      "$uid":{
+        ".read": "(auth != null) && ($uid === auth.uid)",
+        ".write": "(auth != null) && ($uid === auth.uid)"
+      }
+    }
+  }
+}
+
